@@ -13,11 +13,9 @@ class DatabaseHelper(val context: Context) :
 
 
     override fun onCreate(db: SQLiteDatabase?) {
-        // База данных уже создана, поэтому в этом методе ничего делать не нужно
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        // Вы можете обновить базу данных здесь, если необходимо
     }
 
     private fun installDatabaseFromAssets() {
@@ -25,9 +23,8 @@ class DatabaseHelper(val context: Context) :
         if (File(dbPath).exists()) {
             return
         }
-        // Открываем поток для чтения из assets
         val inputStream = context.assets.open("your_database_name.sqlite")
-        // Открываем поток для записи в каталог приложения
+
         val outputStream = FileOutputStream(dbPath)
         inputStream.copyTo(outputStream)
         inputStream.close()
